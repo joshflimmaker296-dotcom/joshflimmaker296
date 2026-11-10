@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>Parequilib — Maison Marketplace &amp; Soundline Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22 fill=%22%23C9A55C%22%3EP%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --accent:#C9A55C; --bg:#0B0B0D; --surface:#141417; --text:#F3EEE3;
+  --surface-2:color-mix(in srgb,var(--surface) 82%,var(--text) 6%);
+  --border:color-mix(in srgb,var(--accent) 22%,transparent);
+  --border-soft:color-mix(in srgb,var(--text) 9%,transparent);
+  --dim:color-mix(in srgb,var(--text) 58%,var(--bg));
+  --accent-2:color-mix(in srgb,var(--accent) 70%,#fff);
+  --accent-ink:#17120A;
+  --gold-grad:linear-gradient(135deg,var(--accent-2) 0%,var(--accent) 45%,color-mix(in srgb,var(--accent) 70%,#000) 100%);
+  --serif:'Cormorant Garamond',Georgia,serif; --sans:'Manrope',system-ui,sans-serif;
+  --radius:4px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-weight:400;letter-spacing:.01em;
+  background-size:cover;background-position:center;background-attachment:fixed;min-height:100vh;-webkit-font-smoothing:antialiased}
+body.has-bg{background-image:linear-gradient(color-mix(in srgb,var(--bg) 82%,transparent),color-mix(in srgb,var(--bg) 92%,transparent)),var(--bg-img)}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+::selection{background:var(--accent);color:var(--accent-ink)}
+[hidden]{display:none!important}
+h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:.01em}
+em{font-family:var(--serif);font-style:italic;color:var(--accent)}
+a{color:var(--accent)}
+.eyebrow{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:14px}
+.dot{color:var(--accent)}
+.dim{color:var(--dim)}
+
+/* buttons */
+.btn{font-family:var(--sans);border:1px solid transparent;border-radius:var(--radius);padding:13px 26px;font-weight:600;font-size:12px;
+  letter-spacing:.18em;text-transform:uppercase;cursor:pointer;transition:all .25s ease;white-space:nowrap;color:var(--text);background:none;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+.btn:disabled{opacity:.55;cursor:wait}
+.btn-gold{background:var(--gold-grad);color:var(--accent-ink);box-shadow:0 6px 24px -10px color-mix(in srgb,var(--accent) 70%,transparent)}
+.btn-gold:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.btn-line{border-color:var(--accent);color:var(--accent)}
+.btn-line:hover{background:color-mix(in srgb,var(--accent) 12%,transparent)}
+.btn-ghost{border-color:var(--border-soft);background:color-mix(in srgb,var(--surface) 70%,transparent)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+.btn-danger{border-color:#7a3434;color:#e7a3a3}
+.btn-danger:hover{background:#3a1717}
+.btn-sm{padding:9px 16px;font-size:10.5px}
+.btn-block{width:100%}
+
+/* landing */
+.view{position:relative;z-index:1}
+.landing-hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:60px 24px;
+  background:radial-gradient(ellipse at 50% 35%,color-mix(in srgb,var(--accent) 16%,transparent),transparent 60%)}
+.landing-logo{width:96px;height:96px;object-fit:cover;border-radius:50%;border:1px solid var(--border);margin-bottom:20px}
+.landing-word{font-size:clamp(56px,11vw,128px);margin:0;font-weight:500;line-height:1;letter-spacing:.02em}
+.ornament{display:flex;align-items:center;gap:14px;color:var(--accent);font-size:10px;margin:26px 0}
+.ornament span{width:70px;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent)}
+.landing-tag{max-width:560px;color:var(--dim);font-size:16px;line-height:1.75;margin:0 0 36px;font-weight:300}
+.landing-actions{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.landing-scroll{margin-top:56px;font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--dim);text-decoration:none}
+.about{max-width:720px;margin:0 auto;padding:110px 24px 90px;border-top:1px solid var(--border)}
+.about h2{font-size:48px;margin:0 0 26px}
+.about p{color:var(--dim);line-height:1.85;font-size:16px;font-weight:300}
+.about blockquote{margin:34px 0;padding:6px 0 6px 26px;border-left:1px solid var(--accent);font-family:var(--serif);font-style:italic;font-size:28px;line-height:1.4}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin:40px 0}
+.pillars div{background:var(--bg);padding:24px 20px}
+.pillars b{display:block;font-family:var(--serif);font-size:22px;font-weight:500;color:var(--accent);margin-bottom:6px}
+.pillars span{font-size:13px;color:var(--dim)}
+.site-foot{text-align:center;padding:28px;color:var(--dim);font-size:12px;border-top:1px solid var(--border-soft);letter-spacing:.05em}
+.site-foot a{color:var(--dim)}
+
+/* auth */
+.auth-screen{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;
+  background:radial-gradient(ellipse at 50% 0%,color-mix(in srgb,var(--accent) 14%,transparent),transparent 60%)}
+.auth-box{width:100%;max-width:420px;background:color-mix(in srgb,var(--surface) 88%,transparent);border:1px solid var(--border);padding:44px 38px;backdrop-filter:blur(10px)}
+.auth-mark{font-family:var(--serif);font-size:26px;text-align:center;margin-bottom:26px;cursor:pointer}
+.auth-box h1{font-size:34px;margin:0 0 6px;text-align:center}
+.auth-box .sub{color:var(--dim);font-size:13.5px;text-align:center;margin-bottom:28px}
+.err{color:#e9a0a0;font-size:12.5px;min-height:18px;margin-bottom:10px}
+.auth-switch{margin-top:20px;text-align:center;font-size:13px;color:var(--dim)}
+.auth-switch span{color:var(--accent);cursor:pointer;border-bottom:1px solid currentColor}
+
+/* fields */
+.field{margin-bottom:16px}
+.field>label,.lbl{display:block;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin-bottom:8px;font-weight:600}
+input,select,textarea{width:100%;background:color-mix(in srgb,var(--bg) 60%,transparent);border:1px solid var(--border-soft);border-radius:var(--radius);
+  padding:12px 14px;color:var(--text);font-family:var(--sans);font-size:14px;outline:none;transition:border-color .2s}
+input:focus,select:focus,textarea:focus{border-color:var(--accent)}
+textarea{min-height:90px;resize:vertical;line-height:1.55}
+select option{background:var(--surface)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.drop{position:relative;display:flex!important;align-items:center;justify-content:center;min-height:120px;border:1px dashed var(--border);border-radius:var(--radius);
+  color:var(--dim);font-size:13px;cursor:pointer;background-size:cover;background-position:center;text-align:center;padding:10px;letter-spacing:normal!important;text-transform:none!important;font-weight:400!important}
+.drop:hover{border-color:var(--accent);color:var(--accent)}
+.drop input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.drop.filled span{background:rgba(0,0,0,.6);padding:4px 10px;border-radius:3px;color:var(--text)}
+.drop.has-img span{display:none}
+.drop-sm{min-height:46px}
+.drop-round{width:110px;height:110px;min-height:0;border-radius:50%}
+
+/* header */
+header{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:22px;padding:16px 32px;
+  background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.logo{font-family:var(--serif);font-size:28px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:10px}
+.logo img{width:32px;height:32px;border-radius:50%;object-fit:cover;border:1px solid var(--border)}
+.mainnav{display:flex;gap:4px}
+.navtab{background:none;border:none;color:var(--dim);font-family:var(--sans);font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;padding:10px 14px;cursor:pointer;position:relative}
+.navtab:hover{color:var(--text)}
+.navtab.active{color:var(--accent)}
+.navtab.active::after{content:'';position:absolute;left:14px;right:14px;bottom:2px;height:1px;background:var(--accent)}
+.searchbar{flex:1;max-width:420px;margin-left:auto;display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--border-soft);padding:6px 4px;color:var(--dim)}
+.searchbar input{background:none;border:none;padding:4px 0}
+.user-menu{position:relative}
+.avatar{width:40px;height:40px;border-radius:50%;border:1px solid var(--accent);background:var(--surface) center/cover;color:var(--accent);
+  font-family:var(--serif);font-size:18px;font-weight:600;cursor:pointer}
+.dropdown{display:none;position:absolute;right:0;top:52px;background:var(--surface);border:1px solid var(--border);min-width:230px;box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.dropdown.open{display:block}
+.dd-head{padding:16px;border-bottom:1px solid var(--border-soft)}
+.dd-head b{display:block;font-family:var(--serif);font-size:19px;font-weight:500}
+.dd-head span{font-size:12px;color:var(--dim)}
+.dropdown button{display:block;width:100%;text-align:left;background:none;border:none;color:var(--text);padding:12px 16px;font-family:var(--sans);font-size:13px;cursor:pointer}
+.dropdown button:hover{background:var(--surface-2);color:var(--accent)}
+
+/* main */
+main.view{max-width:1240px;margin:0 auto;padding:48px 32px 120px}
+.hero{padding:20px 0 40px;border-bottom:1px solid var(--border);margin-bottom:34px}
+.hero h1{font-size:clamp(38px,5vw,60px);margin:0 0 14px;line-height:1.05}
+.hero p{color:var(--dim);max-width:540px;margin:0;line-height:1.7;font-weight:300}
+.hero-row{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.cat-row{scrollbar-width:none;display:flex;gap:8px;overflow-x:auto;margin-bottom:32px;padding-bottom:4px}
+.chip{white-space:nowrap;padding:9px 18px;border:1px solid var(--border-soft);color:var(--dim);font-size:11px;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;background:none;font-family:var(--sans);font-weight:600;border-radius:999px}
+.chip:hover{color:var(--text)}
+.chip.active{border-color:var(--accent);color:var(--accent);background:color-mix(in srgb,var(--accent) 8%,transparent)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:26px}
+.card{background:var(--surface);border:1px solid var(--border-soft);cursor:pointer;transition:all .35s ease;overflow:hidden;position:relative}
+.card:hover{border-color:var(--border);transform:translateY(-4px);box-shadow:0 24px 50px -24px rgba(0,0,0,.8)}
+.card-img{aspect-ratio:4/3.4;background:linear-gradient(145deg,color-mix(in srgb,var(--accent) 22%,var(--surface)),var(--surface)) center/cover;position:relative;display:flex;align-items:center;justify-content:center}
+.card-img .mono{font-family:var(--serif);font-size:64px;color:color-mix(in srgb,var(--accent) 60%,transparent)}
+.card-body{padding:18px 18px 20px}
+.card-cat{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--dim);margin-bottom:8px}
+.card-title{font-family:var(--serif);font-size:22px;font-weight:500;margin:0 0 10px;line-height:1.2}
+.card-foot{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.price{color:var(--accent);font-weight:600;letter-spacing:.04em;font-size:15px}
+.by{font-size:12px;color:var(--dim)}
+.badge{position:absolute;top:12px;left:12px;background:color-mix(in srgb,var(--bg) 70%,transparent);border:1px solid var(--accent);color:var(--accent);
+  font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;padding:5px 9px;backdrop-filter:blur(4px)}
+.badge.right{left:auto;right:12px}
+.badge.free{border-color:var(--text);color:var(--text)}
+.empty{grid-column:1/-1;text-align:center;padding:80px 20px;border:1px dashed var(--border);color:var(--dim)}
+.empty h3{font-size:30px;color:var(--text);margin:0 0 8px}
+
+/* modals */
+.overlay{display:none;position:fixed;inset:0;background:rgba(5,5,7,.86);z-index:50;align-items:flex-start;justify-content:center;padding:50px 16px;overflow-y:auto}
+.overlay.open{display:flex}
+.modal{background:var(--surface);border:1px solid var(--border);max-width:560px;width:100%;padding:34px;position:relative;box-shadow:0 40px 90px rgba(0,0,0,.6)}
+.modal-wide{max-width:720px}
+.modal-sm{max-width:380px}
+.modal h2{margin:0 0 6px;font-size:32px}
+.modal .sub{color:var(--dim);font-size:13.5px;margin-bottom:24px}
+.modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:22px;flex-wrap:wrap}
+.fee{font-size:13px;color:var(--dim);margin:-2px 0 18px;padding:12px 14px;border-left:2px solid var(--accent);background:color-mix(in srgb,var(--accent) 6%,transparent)}
+.fee b{color:var(--text)} .fee .ok{color:var(--accent)}
+.ai-box{border:1px solid var(--border-soft);padding:16px;display:grid;gap:10px}
+.ai-head{display:flex;justify-content:space-between;align-items:center}
+.ai-head span{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);font-weight:600}
+.progress{height:3px;background:var(--border-soft);margin-top:6px}
+.progress div{height:100%;width:0;background:var(--gold-grad);transition:width .2s}
+.detail-img{aspect-ratio:16/10;background:linear-gradient(145deg,color-mix(in srgb,var(--accent) 22%,var(--surface)),var(--surface)) center/cover;margin:-34px -34px 26px;position:relative}
+.detail-price{font-size:24px;color:var(--accent);font-weight:600;margin:4px 0 6px}
+.meta{font-size:12px;color:var(--dim);letter-spacing:.06em}
+.desc{line-height:1.75;color:color-mix(in srgb,var(--text) 85%,var(--bg));font-weight:300;white-space:pre-wrap}
+.thread{background:color-mix(in srgb,var(--bg) 50%,transparent);border:1px solid var(--border-soft);padding:14px;max-height:260px;overflow-y:auto;margin:18px 0 12px;display:flex;flex-direction:column;gap:8px}
+.tmsg{padding:9px 13px;font-size:13.5px;max-width:82%;line-height:1.45;background:var(--surface-2)}
+.tmsg.me{align-self:flex-end;background:color-mix(in srgb,var(--accent) 16%,var(--surface))}
+.tmsg.offer{border:1px solid var(--accent);color:var(--accent);font-weight:600}
+.tmsg small{display:block;font-size:10.5px;color:var(--dim);margin-bottom:2px;letter-spacing:.05em}
+.thread-empty{color:var(--dim);font-size:13px;text-align:center;padding:14px}
+.conv{border:1px solid var(--border-soft);margin-top:14px;padding:14px}
+.conv h4{margin:0 0 4px;font-family:var(--serif);font-size:20px;font-weight:500}
+.inline{display:flex;gap:8px}
+.inline input{flex:1}
+.viewer{margin-top:18px}
+.viewer embed,.viewer iframe{width:100%;height:70vh;border:1px solid var(--border-soft);background:#fff}
+.viewer audio,.viewer video{width:100%}
+.viewer video,.viewer img{max-height:70vh;border:1px solid var(--border-soft);display:block;margin:0 auto;max-width:100%}
+.lock{text-align:center;padding:30px;border:1px dashed var(--border);margin-top:18px}
+.lock .big{font-family:var(--serif);font-size:40px;color:var(--accent)}
+
+/* concierge */
+.fab{position:fixed;right:28px;bottom:28px;z-index:30;background:var(--gold-grad);color:var(--accent-ink);border:none;padding:15px 24px;font-family:var(--sans);font-weight:700;
+  font-size:11px;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;box-shadow:0 14px 40px -12px color-mix(in srgb,var(--accent) 80%,transparent);border-radius:999px}
+.ai-panel{position:fixed;right:0;top:0;bottom:0;width:min(420px,100%);background:var(--surface);border-left:1px solid var(--border);z-index:60;transform:translateX(100%);transition:transform .35s ease;display:flex;flex-direction:column}
+.ai-panel.open{transform:none}
+.ai-panel-head{display:flex;justify-content:space-between;align-items:flex-start;padding:24px;border-bottom:1px solid var(--border-soft)}
+.ai-panel-head .eyebrow{margin-bottom:4px}
+.ai-panel-head b{font-family:var(--serif);font-size:24px;font-weight:500}
+.x{background:none;border:none;color:var(--dim);font-size:28px;cursor:pointer;line-height:1}
+.chat-log{flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:10px}
+.msg{padding:11px 14px;font-size:14px;line-height:1.5;max-width:88%}
+.msg.ai{background:var(--surface-2);align-self:flex-start}
+.msg.user{background:color-mix(in srgb,var(--accent) 18%,var(--surface));align-self:flex-end}
+.rec{border:1px solid var(--border);padding:12px 14px;cursor:pointer;display:flex;justify-content:space-between;gap:10px}
+.rec:hover{background:var(--surface-2)}
+.rec b{font-family:var(--serif);font-size:18px;font-weight:500}
+.chat-input{display:flex;gap:8px;padding:16px;border-top:1px solid var(--border-soft)}
+
+/* admin */
+.tabs::-webkit-scrollbar,.cat-row::-webkit-scrollbar{display:none}
+.tabs{scrollbar-width:none;display:flex;gap:2px;border-bottom:1px solid var(--border-soft);margin-bottom:30px;overflow-x:auto}
+.tabs button{background:none;border:none;color:var(--dim);padding:13px 18px;font-family:var(--sans);font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;cursor:pointer;border-bottom:1px solid transparent;margin-bottom:-1px;white-space:nowrap}
+.tabs button.active{color:var(--accent);border-bottom-color:var(--accent)}
+.stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:26px}
+.stat{background:var(--surface);padding:24px}
+.stat .v{font-family:var(--serif);font-size:40px;color:var(--accent);line-height:1}
+.stat .l{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin-top:10px}
+.table-wrap{overflow-x:auto;border:1px solid var(--border-soft)}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th{text-align:left;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);font-weight:600;padding:14px 16px;border-bottom:1px solid var(--border);background:var(--surface)}
+td{padding:14px 16px;border-bottom:1px solid var(--border-soft);vertical-align:middle}
+tr:last-child td{border-bottom:none}
+td .who{display:flex;align-items:center;gap:12px}
+td .mini{width:34px;height:34px;border-radius:50%;border:1px solid var(--border);background:var(--surface-2) center/cover;display:flex;align-items:center;justify-content:center;font-family:var(--serif);color:var(--accent);flex-shrink:0}
+.role{font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;padding:4px 8px;border:1px solid var(--border-soft);color:var(--dim)}
+.role.admin{border-color:var(--accent);color:var(--accent)}
+.link{background:none;border:none;color:var(--accent);cursor:pointer;font-family:var(--sans);font-size:12px;padding:0 6px}
+.link.red{color:#e39a9a}
+.panel{border:1px solid var(--border-soft);background:color-mix(in srgb,var(--surface) 85%,transparent);padding:28px;margin-bottom:22px}
+.panel h3{margin:0 0 4px;font-size:26px}
+.panel .sub{color:var(--dim);font-size:13px;margin-bottom:20px}
+.presets{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-bottom:24px}
+.preset{border:1px solid var(--border-soft);padding:0;cursor:pointer;background:none;color:var(--text);text-align:left;font-family:var(--sans);overflow:hidden}
+.preset:hover,.preset.active{border-color:var(--accent)}
+.preset .sw{display:flex;height:54px}
+.preset .sw i{flex:1}
+.preset span{display:block;padding:10px 12px;font-size:12px;letter-spacing:.06em}
+.colors{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}
+.color-field{display:flex;align-items:center;gap:12px;border:1px solid var(--border-soft);padding:10px 12px}
+.color-field input[type=color]{width:44px;height:44px;padding:0;border:none;background:none;cursor:pointer;flex-shrink:0}
+.color-field b{display:block;font-weight:600;font-size:13px}
+.color-field code{font-size:12px;color:var(--dim)}
+.asset-row{display:flex;gap:20px;flex-wrap:wrap}
+.asset{width:220px}
+.asset .drop{min-height:130px}
+.seg{display:inline-flex;border:1px solid var(--border-soft)}
+.seg button{background:none;border:none;color:var(--dim);padding:10px 16px;font-family:var(--sans);font-size:12px;cursor:pointer}
+.seg button.active{background:var(--accent);color:var(--accent-ink);font-weight:600}
+.feed-item{border-bottom:1px solid var(--border-soft);padding:14px 0;display:flex;gap:14px;justify-content:space-between}
+.feed-item .t{font-size:14px} .feed-item .s{font-size:12px;color:var(--dim);margin-top:4px}
+
+#toast{position:fixed;left:50%;bottom:30px;transform:translate(-50%,30px);background:var(--surface);border:1px solid var(--accent);color:var(--text);padding:13px 22px;font-size:13.5px;
+  opacity:0;pointer-events:none;transition:all .3s ease;z-index:100;max-width:90vw;box-shadow:0 20px 50px rgba(0,0,0,.5)}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media(max-width:860px){
+  header{flex-wrap:wrap;padding:12px 16px;gap:10px}
+  .mainnav{order:5;width:100%;overflow-x:auto}
+  .searchbar{order:6;max-width:none;width:100%;flex-basis:100%}
+  #sellBtn{margin-left:auto}
+  main.view{padding:28px 16px 100px}
+  .row2,.pillars{grid-template-columns:1fr}
+  .modal{padding:24px}
+  .detail-img{margin:-24px -24px 20px}
+}
+
+</style>
+</head>
+<body>
+
+<!-- LANDING -->
+<section id="landing" class="view">
+  <div class="landing-hero">
+    <div class="eyebrow">Maison · Est. 2024</div>
+    <img id="landingLogo" class="landing-logo" alt="" hidden>
+    <h1 class="landing-word"><span class="brandName">Parequilib</span><span class="dot">.</span></h1>
+    <div class="ornament"><span></span>◆<span></span></div>
+    <p class="landing-tag">A private marketplace built on balance — considered pieces, honest listings, and a studio for work worth paying for.</p>
+    <div class="landing-actions">
+      <button class="btn btn-gold" onclick="go('auth','signup')">Request membership</button>
+      <button class="btn btn-line" onclick="go('auth','signin')">Sign in</button>
+    </div>
+    <a class="landing-scroll" href="#about">Discover the house ↓</a>
+  </div>
+  <div class="about" id="about">
+    <div class="eyebrow">From the founder</div>
+    <h2>Why “Parequilib”</h2>
+    <p>From <em>para</em>, alongside, and <em>equilibrium</em>, balance. Every marketplace claims to serve both sides; most quietly favor one. Parequilib began with a simple conviction: sellers deserve to present what they own beautifully, and buyers deserve to know exactly what they are getting.</p>
+    <blockquote>“The fairest transaction is the one where both people understood exactly what they were getting into.”</blockquote>
+    <p>Our fee is a transparent 10%, shown before you ever list. Soundline Studio is where creators publish manuscripts, music and files — free or for a price they set.</p>
+    <div class="pillars">
+      <div><b>Curated</b><span>Every listing presented with care.</span></div>
+      <div><b>Transparent</b><span>One clear 10% fee. Nothing hidden.</span></div>
+      <div><b>Private</b><span>Members-only conversations and offers.</span></div>
+    </div>
+    <button class="btn btn-gold" onclick="go('auth','signup')">Become a member</button>
+  </div>
+  <footer class="site-foot">© <span id="year"></span> <span class="brandName">Parequilib</span> Group · <a href="mailto:joshflimmaker296@gmail.com">joshflimmaker296@gmail.com</a> · <a href="https://instagram.com/parequili_.group" target="_blank" rel="noopener">@parequili_.group</a></footer>
+</section>
+
+<!-- AUTH -->
+<section id="auth" class="view auth-screen" hidden>
+  <form class="auth-box" onsubmit="submitAuth(event)" novalidate>
+    <div class="auth-mark" onclick="go('landing')"><span class="brandName">Parequilib</span><span class="dot">.</span></div>
+    <h1 id="authTitle">Welcome back</h1>
+    <div class="sub" id="authSub">Sign in to your membership.</div>
+    <div class="field" id="fName" hidden><label for="authName">Full name</label><input id="authName" autocomplete="name"></div>
+    <div class="field"><label for="authEmail">Email</label><input id="authEmail" type="email" autocomplete="email" placeholder="you@example.com"></div>
+    <div class="field"><label for="authPass">Password</label><input id="authPass" type="password" autocomplete="current-password" placeholder="At least 8 characters"></div>
+    <div class="field" id="fConfirm" hidden><label for="authPass2">Confirm password</label><input id="authPass2" type="password" autocomplete="new-password"></div>
+    <div class="err" id="authErr" role="alert"></div>
+    <button class="btn btn-gold btn-block" id="authBtn">Sign in</button>
+    <div class="auth-switch" id="authSwitch"></div>
+  </form>
+</section>
+
+<!-- APP HEADER -->
+<header id="header" hidden>
+  <div class="logo" onclick="showView('market')"><img id="headerLogo" alt="" hidden><span><span class="brandName">Parequilib</span><span class="dot">.</span></span></div>
+  <nav class="mainnav">
+    <button class="navtab" data-v="market" onclick="showView('market')">Marketplace</button>
+    <button class="navtab" data-v="studio" onclick="showView('studio')">Studio</button>
+    <button class="navtab" data-v="admin" id="navAdmin" onclick="showView('admin')" hidden>Admin</button>
+  </nav>
+  <div class="searchbar" id="searchbar"><span>⌕</span><input id="searchInput" placeholder="Search the collection…"></div>
+  <button class="btn btn-line btn-sm" id="sellBtn" onclick="openSell()">+ List an item</button>
+  <div class="user-menu">
+    <button class="avatar" id="avatar" onclick="toggleMenu()" aria-label="Account"></button>
+    <div class="dropdown" id="dropdown">
+      <div class="dd-head"><b id="ddName"></b><span id="ddEmail"></span></div>
+      <button onclick="openProfile()">Edit profile</button>
+      <button onclick="logout()">Sign out</button>
+    </div>
+  </div>
+</header>
+
+<!-- MARKETPLACE -->
+<main id="market" class="view" hidden>
+  <div class="hero">
+    <div class="eyebrow">The Collection</div>
+    <h1>Acquire with confidence.<br><em>Sell with grace.</em></h1>
+    <p>Members list considered pieces; a concierge helps buyers find exactly what they want.</p>
+  </div>
+  <div class="cat-row" id="catRow"></div>
+  <div class="grid" id="grid"></div>
+</main>
+
+<!-- STUDIO -->
+<main id="studio" class="view" hidden>
+  <div class="hero hero-row">
+    <div>
+      <div class="eyebrow">Soundline Studio</div>
+      <h1>Manuscripts, music <em>&amp; files.</em></h1>
+      <p>Read, listen and download. Free works open instantly; premium works unlock after purchase.</p>
+    </div>
+    <button class="btn btn-gold" id="studioUploadBtn" onclick="openStudioUpload()" hidden>+ Upload to Studio</button>
+  </div>
+  <div class="grid studio-grid" id="studioGrid"></div>
+</main>
+
+<!-- ADMIN -->
+<main id="admin" class="view" hidden>
+  <div class="hero hero-row">
+    <div><div class="eyebrow">Atelier</div><h1>Admin panel</h1></div>
+  </div>
+  <div class="tabs" id="adminTabs">
+    <button data-t="overview">Overview</button>
+    <button data-t="users">Members</button>
+    <button data-t="appearance">Appearance</button>
+    <button data-t="studio">Studio</button>
+    <button data-t="orders">Orders</button>
+    <button data-t="listings">Listings</button>
+    <button data-t="messages">Messages &amp; Offers</button>
+  </div>
+  <div id="adminContent"></div>
+</main>
+
+<button class="fab" id="fab" hidden onclick="toggleAI(true)">✦ Concierge</button>
+
+<!-- Sell modal -->
+<div class="overlay" id="sellOverlay">
+  <form class="modal" onsubmit="postListing(event)">
+    <h2>List an item</h2>
+    <div class="sub">A transparent 10% fee applies on sale — you keep the rest.</div>
+    <div class="field"><label>Photograph</label>
+      <label class="drop" id="sellDrop"><span>Tap to add a photograph</span><input type="file" accept="image/*" id="sellImg" onchange="previewDrop(this,'sellDrop')"></label></div>
+    <div class="field"><label for="keywords">Describe it in a few words</label><input id="keywords" placeholder="e.g. Rolex Datejust 36, 2019, box & papers"></div>
+    <div class="row2">
+      <div class="field"><label for="category">Category</label><select id="category"></select></div>
+      <div class="field"><label for="price">Price ($)</label><input id="price" type="number" min="0" step="0.01" placeholder="1200" oninput="feeNote()"></div>
+    </div>
+    <div class="fee" id="feeNote">Enter a price to see what you take home after the 10% fee.</div>
+    <div class="ai-box">
+      <div class="ai-head"><span>Listing copy</span><button type="button" class="btn btn-ghost btn-sm" id="genBtn" onclick="generateListing()">✦ Write it for me</button></div>
+      <input id="titleOut" placeholder="Title">
+      <textarea id="descOut" placeholder="Description"></textarea>
+    </div>
+    <div class="modal-actions">
+      <button type="button" class="btn btn-ghost" onclick="closeOverlay('sellOverlay')">Cancel</button>
+      <button class="btn btn-gold" id="postBtn">Publish listing</button>
+    </div>
+  </form>
+</div>
+
+<!-- Studio upload modal -->
+<div class="overlay" id="studioOverlay">
+  <form class="modal" onsubmit="submitStudio(event)">
+    <h2>Upload to Studio</h2>
+    <div class="sub">Any file — PDF, audio, video, image, archive. Set a cost, or 0 to make it free.</div>
+    <div class="field"><label>File</label>
+      <label class="drop" id="studioDrop"><span>Tap to choose a file</span><input type="file" id="studioFile" onchange="fileChosen(this)"></label></div>
+    <div class="field"><label for="studioTitle">Title</label><input id="studioTitle" placeholder="e.g. Mystico Legend — Chapter One"></div>
+    <div class="field"><label for="studioDesc">Description</label><textarea id="studioDesc" placeholder="What is it? (optional)"></textarea></div>
+    <div class="row2">
+      <div class="field"><label for="studioPrice">Cost ($)</label><input id="studioPrice" type="number" min="0" step="0.01" placeholder="0 = free" oninput="studioFee()"></div>
+      <div class="field"><label>Cover image (optional)</label>
+        <label class="drop drop-sm" id="coverDrop"><span>Add cover</span><input type="file" accept="image/*" id="studioCover" onchange="previewDrop(this,'coverDrop')"></label></div>
+    </div>
+    <div class="fee" id="studioFeeNote">Leave the cost at 0 to publish it for free.</div>
+    <div class="progress" id="studioProgress" hidden><div></div></div>
+    <div class="modal-actions">
+      <button type="button" class="btn btn-ghost" onclick="closeOverlay('studioOverlay')">Cancel</button>
+      <button class="btn btn-gold" id="studioBtn">Upload</button>
+    </div>
+  </form>
+</div>
+
+<!-- Detail / generic modal -->
+<div class="overlay" id="detailOverlay"><div class="modal modal-wide" id="detailModal"></div></div>
+
+<!-- Profile -->
+<div class="overlay" id="profileOverlay">
+  <form class="modal modal-sm" onsubmit="saveProfile(event)">
+    <h2>Your profile</h2>
+    <div class="field"><label>Portrait</label>
+      <label class="drop drop-round" id="profileDrop"><span>Add photo</span><input type="file" accept="image/*" id="profileImg" onchange="previewDrop(this,'profileDrop')"></label></div>
+    <div class="field"><label for="profileName">Name</label><input id="profileName"></div>
+    <div class="modal-actions">
+      <button type="button" class="btn btn-ghost" onclick="closeOverlay('profileOverlay')">Cancel</button>
+      <button class="btn btn-gold">Save</button>
+    </div>
+  </form>
+</div>
+
+<!-- Concierge -->
+<aside class="ai-panel" id="aiPanel">
+  <div class="ai-panel-head"><div><div class="eyebrow">Concierge</div><b>How may I help?</b></div><button class="x" onclick="toggleAI(false)">×</button></div>
+  <div class="chat-log" id="chatLog"><div class="msg ai">Tell me what you are looking for — a budget, a style, an occasion — and I will find the closest pieces.</div></div>
+  <div class="chat-input"><input id="chatInput" placeholder="e.g. a watch under $5,000" onkeydown="if(event.key==='Enter')sendChat()"><button class="btn btn-gold btn-sm" onclick="sendChat()">Send</button></div>
+</aside>
+
+<div id="toast" role="status"></div>
+<script>
+'use strict';
+const $ = id => document.getElementById(id);
+const esc = x => String(x == null ? '' : x).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const money = n => Number(n) === 0 ? 'Free' : '$' + Number(n).toLocaleString(undefined, {minimumFractionDigits: Number(n) % 1 ? 2 : 0, maximumFractionDigits: 2});
+const fmtDate = t => new Date(t * 1000).toLocaleDateString(undefined, {year:'numeric', month:'short', day:'numeric'});
+const fmtTime = t => new Date(t * 1000).toLocaleString(undefined, {month:'short', day:'numeric', hour:'numeric', minute:'2-digit'});
+const fmtSize = b => b > 1048576 ? (b / 1048576).toFixed(1) + ' MB' : Math.max(1, Math.round(b / 1024)) + ' KB';
+
+let ME = null, SETTINGS = null, LISTINGS = [], STUDIO = {items: [], canUpload: false};
+let view = 'market', activeCat = 'All', authMode = 'signin', adminTab = 'overview', currentListing = null;
+
+function toast(m) { const t = $('toast'); t.textContent = m; t.className = 'show'; clearTimeout(t._t); t._t = setTimeout(() => t.className = '', 3600); }
+
+// ===== In-browser backend (replaces Flask + SQLite). Data lives in this browser only. =====
+const CATS = ["Fashion","Watches & Jewelry","Art & Collectibles","Electronics","Home & Interiors","Vehicles","Other"];
+const DT = {accent:'#C9A55C', bg:'#0B0B0D', surface:'#141417', text:'#F3EEE3'};
+const FEE = 0.10;
+let S = {seq: 1, users: [], listings: [], messages: [], items: [], purchases: [], set: {theme: {}, studioUploads: 'admin', brand: 'Parequilib', logo: null, background: null}};
+const BLOBS = {}, URLS = {};
+let _db = null;
+const idb = () => _db || (_db = new Promise((res, rej) => { try { const r = indexedDB.open('parequilib', 1); r.onupgradeneeded = () => r.result.createObjectStore('kv'); r.onsuccess = () => res(r.result); r.onerror = () => rej(r.error); } catch (e) { rej(e); } }));
+const kv = async (mode, fn) => { const d = await idb(); return new Promise((res, rej) => { const t = d.transaction('kv', mode), s = t.objectStore('kv'), r = fn(s); t.oncomplete = () => res(r && r.result); t.onerror = () => rej(t.error); }); };
+const save = () => kv('readwrite', s => s.put(S, 'state')).catch(() => {});
+async function loadState() {
+  try {
+    const st = await kv('readonly', s => s.get('state')); if (st) S = st;
+    for (const i of S.items) { const b = await kv('readonly', s => s.get('blob:' + i.id)); if (b) { BLOBS[i.id] = b; URLS[i.id] = URL.createObjectURL(b); } }
+  } catch (e) {}
+}
+const fileURL = id => URLS[id] || '';
+class HErr extends Error {}
+const bad = m => { throw new HErr(m); };
+const now = () => Date.now() / 1000;
+const rd = f => new Promise((res, rej) => { const r = new FileReader(); r.onload = () => res(r.result); r.onerror = rej; r.readAsDataURL(f); });
+async function img(f) { if (!f || !f.name) return null; if (!/^image\//.test(f.type)) bad('Images must be PNG, JPG, WEBP or GIF.'); if (f.size > 4e6) bad('Please use an image under 4 MB.'); return rd(f); }
+const price = v => { const p = Math.round(parseFloat(v) * 100) / 100; if (isNaN(p)) bad('Enter a valid price.'); if (p < 0 || p > 1e7) bad('Enter a price between 0 and 10,000,000.'); return p; };
+const sha = async s => [...new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode('parequilib:' + s)))].map(b => b.toString(16).padStart(2, '0')).join('');
+const me = () => S.users.find(u => u.id === Number(localStorage.getItem('pq_uid'))) || null;
+const need = () => me() || bad('Please sign in.');
+let ADMIN_OK = false;
+const admin = () => { const u = need(); if (u.role !== 'admin') bad('Admins only.'); if (!ADMIN_OK) bad('Enter the admin password to continue.'); return u; };
+const uj = u => ({id: u.id, name: u.name, email: u.email, role: u.role, avatar: u.avatar, joined: u.joined});
+const nameOf = id => (S.users.find(u => u.id === id) || {name: 'Former member'}).name;
+const pub = () => ({theme: {...DT, ...S.set.theme}, logo: S.set.logo, background: S.set.background, studioUploads: S.set.studioUploads, brand: S.set.brand, categories: CATS, feeRate: FEE});
+const lj = l => ({id: l.id, title: l.title, description: l.description, price: l.price, category: l.category, image: l.image, ai: !!l.ai, created: l.created, ownerId: l.owner, ownerName: nameOf(l.owner)});
+const owns = (u, i) => !!u && (u.role === 'admin' || i.uploader === u.id || i.price === 0 || S.purchases.some(p => p.item === i.id && p.user === u.id));
+const ij = (i, u) => ({id: i.id, title: i.title, description: i.description, price: i.price, filename: i.filename, mime: i.mime, size: i.size, cover: i.cover, uploaderId: i.uploader, uploaderName: nameOf(i.uploader), created: i.created, owned: owns(u, i), sales: S.purchases.filter(p => p.item === i.id).length});
+const mj = m => ({id: m.id, buyerId: m.buyer, buyerName: nameOf(m.buyer), senderId: m.sender, senderName: nameOf(m.sender), text: m.text, offer: m.offer, created: m.created});
+const canUp = u => !!u && (u.role === 'admin' || S.set.studioUploads === 'members');
+const usersList = () => ({users: [...S.users].sort((a, b) => b.joined - a.joined).map(u => ({...uj(u), lastLogin: u.last, listings: S.listings.filter(l => l.owner === u.id).length, uploads: S.items.filter(i => i.uploader === u.id).length, purchases: S.purchases.filter(p => p.user === u.id).length}))});
+const thread = (l, u) => ({messages: S.messages.filter(m => m.listing === l.id && (u.role === 'admin' || l.owner === u.id || m.buyer === u.id)).sort((a, b) => a.created - b.created).map(mj)});
+const delItem = id => { S.items = S.items.filter(i => i.id !== id); S.purchases = S.purchases.filter(p => p.item !== id); delete BLOBS[id]; if (URLS[id]) URL.revokeObjectURL(URLS[id]); delete URLS[id]; kv('readwrite', s => s.delete('blob:' + id)).catch(() => {}); };
+
+const ROUTES = [
+['POST', /^\/api\/signup$/, async ({body: d}) => {
+  const name = (d.name || '').trim(), email = (d.email || '').trim().toLowerCase(), pw = d.password || '';
+  if (name.length < 2) bad('Enter your name.'); if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) bad('Enter a valid email address.');
+  if (pw.length < 8) bad('Use at least 8 characters for your password.');
+  if (S.users.some(u => u.email === email)) bad('An account with this email already exists. Sign in instead.');
+  const u = {id: S.seq++, name: name.slice(0, 80), email, pw: await sha(pw), role: S.users.length ? 'member' : 'admin', avatar: null, joined: now(), last: now()};
+  S.users.push(u); localStorage.setItem('pq_uid', u.id); return {user: uj(u)}; }],
+['POST', /^\/api\/login$/, async ({body: d}) => {
+  const email = (d.email || '').trim().toLowerCase(), u = S.users.find(x => x.email === email);
+  if (!u || u.pw !== await sha(d.password || '')) bad('Wrong email or password.');
+  u.last = now(); localStorage.setItem('pq_uid', u.id); return {user: uj(u)}; }],
+['POST', /^\/api\/logout$/, () => { localStorage.removeItem('pq_uid'); ADMIN_OK = false; return {ok: true}; }],
+['GET', /^\/api\/me$/, () => ({user: me() ? uj(me()) : null})],
+['POST', /^\/api\/me$/, async ({form}) => { const u = need(); u.name = (form.get('name') || u.name).trim().slice(0, 80) || u.name; const a = await img(form.get('avatar')); if (a) u.avatar = a; return {user: uj(u)}; }],
+['GET', /^\/api\/settings$/, () => pub()],
+['PUT', /^\/api\/admin\/settings$/, ({body: d}) => { admin();
+  if (d.theme) { const t = {}; for (const k in DT) if (/^#[0-9a-f]{6}$/i.test(d.theme[k] || '')) t[k] = d.theme[k]; S.set.theme = t; }
+  if (d.studioUploads === 'admin' || d.studioUploads === 'members') S.set.studioUploads = d.studioUploads;
+  if (typeof d.brand === 'string' && d.brand.trim()) S.set.brand = d.brand.trim().slice(0, 40);
+  return pub(); }],
+['POST', /^\/api\/admin\/asset\/(logo|background)$/, async ({m, form}) => { admin(); const a = await img(form.get('file')); if (!a) bad('Choose an image.'); S.set[m[1]] = a; return pub(); }],
+['DELETE', /^\/api\/admin\/asset\/(logo|background)$/, ({m}) => { admin(); S.set[m[1]] = null; return pub(); }],
+['GET', /^\/api\/listings$/, () => ({listings: [...S.listings].sort((a, b) => b.created - a.created).map(lj)})],
+['POST', /^\/api\/listings$/, async ({form: f}) => { const u = need(), title = (f.get('title') || '').trim().slice(0, 120); if (!title) bad('Add a title.');
+  const p = price(f.get('price')), im = await img(f.get('image'));
+  const l = {id: S.seq++, title, description: (f.get('description') || '').trim().slice(0, 4000), price: p, category: CATS.includes(f.get('category')) ? f.get('category') : 'Other', owner: u.id, image: im, ai: f.get('ai') === '1', created: now()};
+  S.listings.push(l); return {listing: lj(l)}; }],
+['DELETE', /^\/api\/listings\/(\d+)$/, ({m}) => { const u = need(), id = +m[1], l = S.listings.find(x => x.id === id); if (!l) bad('Listing not found.');
+  if (u.role !== 'admin' && l.owner !== u.id) bad('You can only remove your own listings.');
+  S.listings = S.listings.filter(x => x.id !== id); S.messages = S.messages.filter(x => x.listing !== id); return {ok: true}; }],
+['GET', /^\/api\/listings\/(\d+)\/messages$/, ({m}) => { const u = need(), l = S.listings.find(x => x.id === +m[1]); if (!l) bad('Listing not found.'); return thread(l, u); }],
+['POST', /^\/api\/listings\/(\d+)\/messages$/, ({m, body: d}) => { const u = need(), l = S.listings.find(x => x.id === +m[1]); if (!l) bad('Listing not found.');
+  let text = (d.text || '').trim().slice(0, 2000), offer = d.offer, buyer;
+  if (l.owner === u.id) { buyer = d.buyerId; if (!S.messages.some(x => x.listing === l.id && x.buyer === buyer)) bad('Pick a conversation to reply to.'); offer = null; } else buyer = u.id;
+  if (offer != null) { offer = price(offer); if (offer <= 0) bad('Enter an offer above 0.'); text = text || `Offer: $${offer.toLocaleString(undefined, {minimumFractionDigits: 2})}`; }
+  if (!text) bad('Write a message.');
+  S.messages.push({id: S.seq++, listing: l.id, buyer, sender: u.id, text, offer: offer == null ? null : offer, created: now()}); return thread(l, u); }],
+['GET', /^\/api\/studio$/, () => { const u = me(); return {items: [...S.items].sort((a, b) => b.created - a.created).map(i => ij(i, u)), canUpload: canUp(u)}; }],
+['POST', /^\/api\/studio$/, async ({form: f}) => { const u = need(); if (!canUp(u)) bad('Only the admin can upload to the Studio right now.');
+  const file = f.get('file'); if (!file || !file.name) bad('Choose a file to upload.');
+  const p = price(f.get('price') || 0), cover = await img(f.get('cover'));
+  const i = {id: S.seq++, title: (f.get('title') || '').trim().slice(0, 120) || file.name.replace(/\.[^.]+$/, '').slice(0, 120), description: (f.get('description') || '').trim().slice(0, 4000), price: p, filename: file.name.slice(0, 200), mime: file.type || 'application/octet-stream', size: file.size, cover, uploader: u.id, created: now()};
+  BLOBS[i.id] = file; URLS[i.id] = URL.createObjectURL(file);
+  try { await kv('readwrite', s => s.put(file, 'blob:' + i.id)); } catch (e) {}
+  S.items.push(i); return {item: ij(i, u)}; }],
+['PATCH', /^\/api\/studio\/(\d+)$/, ({m, body: d}) => { const u = need(), i = S.items.find(x => x.id === +m[1]); if (!i) bad('Item not found.'); if (u.role !== 'admin' && i.uploader !== u.id) bad('You can only edit your own uploads.');
+  if ('price' in d) i.price = price(d.price); if (d.title) i.title = d.title.trim().slice(0, 120); return {item: ij(i, u)}; }],
+['DELETE', /^\/api\/studio\/(\d+)$/, ({m}) => { const u = need(), i = S.items.find(x => x.id === +m[1]); if (!i) bad('Item not found.'); if (u.role !== 'admin' && i.uploader !== u.id) bad('You can only remove your own uploads.'); delItem(i.id); return {ok: true}; }],
+['POST', /^\/api\/studio\/(\d+)\/buy$/, ({m}) => { const u = need(), i = S.items.find(x => x.id === +m[1]); if (!i) bad('Item not found.');
+  if (!owns(u, i)) S.purchases.push({id: S.seq++, item: i.id, user: u.id, amount: i.price, created: now()}); return {item: ij(i, u)}; }],
+['GET', /^\/api\/admin\/overview$/, () => { admin(); const sales = S.purchases.reduce((a, p) => a + p.amount, 0);
+  return {users: S.users.length, listings: S.listings.length, listingValue: S.listings.reduce((a, l) => a + l.price, 0), messages: S.messages.filter(x => x.offer == null).length, offers: S.messages.filter(x => x.offer != null).length, studioItems: S.items.length, studioSales: sales, studioOrders: S.purchases.length, revenue: Math.round(sales * FEE * 100) / 100}; }],
+['GET', /^\/api\/admin\/users$/, () => { admin(); return usersList(); }],
+['PATCH', /^\/api\/admin\/users\/(\d+)$/, ({m, body: d}) => { const u = admin(); if (!['admin', 'member'].includes(d.role)) bad('Unknown role.'); if (+m[1] === u.id && d.role !== 'admin') bad("You can't remove your own admin access."); const t = S.users.find(x => x.id === +m[1]); if (t) t.role = d.role; return usersList(); }],
+['DELETE', /^\/api\/admin\/users\/(\d+)$/, ({m}) => { const u = admin(), id = +m[1]; if (id === u.id) bad("You can't delete your own account here.");
+  S.users = S.users.filter(x => x.id !== id); const gone = new Set(S.listings.filter(l => l.owner === id).map(l => l.id)); S.listings = S.listings.filter(l => l.owner !== id);
+  S.messages = S.messages.filter(x => x.buyer !== id && x.sender !== id && !gone.has(x.listing)); S.items.filter(i => i.uploader === id).forEach(i => delItem(i.id)); S.purchases = S.purchases.filter(p => p.user !== id); return usersList(); }],
+['GET', /^\/api\/admin\/messages$/, () => { admin(); return {messages: [...S.messages].sort((a, b) => b.created - a.created).slice(0, 500).map(x => ({...mj(x), listingId: x.listing, listingTitle: (S.listings.find(l => l.id === x.listing) || {}).title}))}; }],
+['GET', /^\/api\/admin\/orders$/, () => { admin(); return {orders: [...S.purchases].sort((a, b) => b.created - a.created).map(p => ({id: p.id, title: (S.items.find(i => i.id === p.item) || {}).title, name: nameOf(p.user), email: (S.users.find(u => u.id === p.user) || {}).email, amount: p.amount, created: p.created}))}; }],
+['POST', /^\/api\/ai\/listing$/, ({body: d}) => { need(); const kw = (d.keywords || '').trim().slice(0, 300); if (!kw) bad('Add a few keywords first.'); const cat = d.category || 'Other', t = kw[0].toUpperCase() + kw.slice(1);
+  return {title: t.slice(0, 60), description: `${t}. Offered in ${cat}${d.price ? ` at $${d.price}` : ''}. Message the seller with any questions or make an offer.`, ai: false}; }],
+['POST', /^\/api\/ai\/assistant$/, ({body: d}) => { const q = (d.q || '').trim().slice(0, 300); if (!q) bad('Ask something.');
+  const words = q.toLowerCase().split(/\W+/).filter(w => w.length > 2), cap = q.match(/\$?\s?(\d{2,7})/);
+  const ids = S.listings.map(l => { const h = `${l.title} ${l.category} ${l.description || ''}`.toLowerCase(); return [words.filter(w => h.includes(w)).length - (cap && l.price > +cap[1] ? 9 : 0), l.id]; }).filter(x => x[0] > 0).sort((a, b) => b[0] - a[0]).slice(0, 3).map(x => x[1]);
+  return {reply: ids.length ? 'Here is what suits you best right now:' : 'Nothing matches that yet. Try different words or a higher budget.', matches: ids}; }],
+];
+async function api(path, opts = {}) {
+  const method = opts.method || 'GET', p = path.split('?')[0];
+  for (const [mt, re, fn] of ROUTES) { const m = mt === method && p.match(re); if (!m) continue;
+    try { const out = await fn({m, body: opts.body || {}, form: opts.form}); if (method !== 'GET') await save(); return JSON.parse(JSON.stringify(out)); }
+    catch (e) { throw e instanceof HErr ? e : new Error('Something went wrong. Please try again.'); } }
+  throw new Error('Not found.');
+}
+async function uploadWithProgress(path, form, onProgress) { onProgress(0.4); const r = await api(path, {method: 'POST', form}); onProgress(1); return r; }
+const _ready = loadState();
+
+// ---------- theme ----------
+function applySettings(s) {
+  SETTINGS = s;
+  const r = document.documentElement.style;
+  Object.entries(s.theme).forEach(([k, v]) => r.setProperty('--' + k, v));
+  const lum = h => { const n = parseInt(h.slice(1), 16); return (0.299 * (n >> 16) + 0.587 * (n >> 8 & 255) + 0.114 * (n & 255)) / 255; };
+  r.setProperty('--accent-ink', lum(s.theme.accent) > 0.55 ? '#17120A' : '#FFFFFF');
+  document.body.classList.toggle('has-bg', !!s.background);
+  if (s.background) r.setProperty('--bg-img', `url("${s.background}")`);
+  ['landingLogo', 'headerLogo'].forEach(id => { const i = $(id); i.hidden = !s.logo; if (s.logo) i.src = s.logo; });
+  document.querySelectorAll('.brandName').forEach(e => e.textContent = s.brand);
+  document.title = `${s.brand} — Maison Marketplace & Soundline Studio`;
+  $('category').innerHTML = s.categories.map(c => `<option>${esc(c)}</option>`).join('');
+}
+
+// ---------- routing ----------
+function go(screen, mode) {
+  ['landing', 'auth'].forEach(id => $(id).hidden = id !== screen);
+  if (screen === 'auth') { setAuthMode(mode || 'signin'); setTimeout(() => $(authMode === 'signup' ? 'authName' : 'authEmail').focus(), 50); }
+  window.scrollTo(0, 0);
+}
+
+function enterApp() {
+  ['landing', 'auth'].forEach(id => $(id).hidden = true);
+  $('header').hidden = false;
+  $('navAdmin').hidden = ME.role !== 'admin';
+  updateAvatar();
+  const h = location.hash.slice(1);
+  showView(['market', 'studio', 'admin'].includes(h) ? h : view);
+}
+
+function adminGate() {
+  $('detailModal').innerHTML = `<form onsubmit="adminUnlock(event)"><h2>Admin access</h2><div class="sub">Enter the admin password to continue.</div><div class="field"><label for="adminPw">Password</label><input id="adminPw" type="password" autocomplete="off"></div><div class="modal-actions"><button type="button" class="btn btn-ghost" onclick="closeOverlay('detailOverlay')">Cancel</button><button class="btn btn-gold">Unlock</button></div></form>`;
+  openOverlay('detailOverlay'); setTimeout(() => $('adminPw').focus(), 50);
+}
+function adminUnlock(e) {
+  e.preventDefault();
+  if ($('adminPw').value === '2026') { ADMIN_OK = true; closeOverlay('detailOverlay'); showView('admin'); }
+  else { toast('Incorrect password.'); $('adminPw').value = ''; }
+}
+function showView(v) {
+  if (v === 'admin' && ME.role !== 'admin') v = 'market';
+  if (v === 'admin' && !ADMIN_OK) { adminGate(); v = 'market'; }
+  view = v;
+  history.replaceState(null, '', '#' + v);
+  ['market', 'studio', 'admin'].forEach(id => $(id).hidden = id !== v);
+  document.querySelectorAll('.navtab').forEach(b => b.classList.toggle('active', b.dataset.v === v));
+  $('searchbar').style.visibility = v === 'admin' ? 'hidden' : 'visible';
+  $('searchInput').placeholder = v === 'studio' ? 'Search the studio…' : 'Search the collection…';
+  $('fab').hidden = v !== 'market';
+  $('dropdown').classList.remove('open');
+  if (v === 'market') loadListings();
+  else if (v === 'studio') loadStudio();
+  else setAdminTab(adminTab);
+  window.scrollTo(0, 0);
+}
+
+// ---------- auth ----------
+function setAuthMode(m) {
+  authMode = m; const su = m === 'signup';
+  $('authTitle').textContent = su ? 'Request membership' : 'Welcome back';
+  $('authSub').textContent = su ? 'Create your account to buy, sell and use the Studio.' : 'Sign in to your membership.';
+  $('fName').hidden = $('fConfirm').hidden = !su;
+  $('authPass').autocomplete = su ? 'new-password' : 'current-password';
+  $('authBtn').textContent = su ? 'Create account' : 'Sign in';
+  $('authSwitch').innerHTML = su ? 'Already a member? <span onclick="setAuthMode(\'signin\')">Sign in</span>' : 'New here? <span onclick="setAuthMode(\'signup\')">Create an account</span>';
+  $('authErr').textContent = '';
+}
+
+async function submitAuth(e) {
+  e.preventDefault();
+  const email = $('authEmail').value.trim(), password = $('authPass').value, btn = $('authBtn');
+  $('authErr').textContent = '';
+  if (authMode === 'signup' && password !== $('authPass2').value) return $('authErr').textContent = "The two passwords don't match.";
+  btn.disabled = true;
+  try {
+    const d = authMode === 'signup'
+      ? await api('/api/signup', {method: 'POST', body: {name: $('authName').value.trim(), email, password}})
+      : await api('/api/login', {method: 'POST', body: {email, password}});
+    ME = d.user;
+    ['authPass', 'authPass2'].forEach(i => $(i).value = '');
+    enterApp();
+    toast(`Welcome${authMode === 'signup' ? '' : ' back'}, ${ME.name.split(' ')[0]}.`);
+  } catch (x) { $('authErr').textContent = x.message; }
+  finally { btn.disabled = false; }
+}
+
+async function logout() {
+  await api('/api/logout', {method: 'POST'}).catch(() => {});
+  ME = null; toggleAI(false);
+  ['header', 'market', 'studio', 'admin', 'fab'].forEach(i => $(i).hidden = true);
+  document.querySelectorAll('.overlay.open').forEach(o => o.classList.remove('open'));
+  history.replaceState(null, '', '/');
+  go('auth', 'signin');
+}
+
+function updateAvatar() {
+  const a = $('avatar');
+  a.style.backgroundImage = ME.avatar ? `url("${ME.avatar}")` : 'none';
+  a.textContent = ME.avatar ? '' : ME.name.charAt(0).toUpperCase();
+  $('ddName').textContent = ME.name; $('ddEmail').textContent = ME.email;
+}
+function toggleMenu() { $('dropdown').classList.toggle('open'); }
+document.addEventListener('click', e => { if (!e.target.closest('.user-menu')) $('dropdown').classList.remove('open'); });
+
+// ---------- overlays / drop zones ----------
+function openOverlay(id) { $(id).classList.add('open'); }
+function closeOverlay(id) { $(id).classList.remove('open'); }
+document.addEventListener('click', e => { if (e.target.classList.contains('overlay')) e.target.classList.remove('open'); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') { document.querySelectorAll('.overlay.open').forEach(o => o.classList.remove('open')); toggleAI(false); } });
+
+function previewDrop(input, boxId) {
+  const f = input.files[0], box = $(boxId);
+  if (!f) return resetDrop(boxId);
+  const rd = new FileReader();
+  rd.onload = ev => { box.style.backgroundImage = `url("${ev.target.result}")`; box.classList.add('has-img'); };
+  rd.readAsDataURL(f);
+}
+function resetDrop(boxId) {
+  const box = $(boxId); box.style.backgroundImage = ''; box.classList.remove('has-img', 'filled');
+  const inp = box.querySelector('input'); if (inp) inp.value = '';
+  const sp = box.querySelector('span'); if (sp && sp.dataset.orig) sp.textContent = sp.dataset.orig;
+}
+function fileChosen(input) {
+  const f = input.files[0], box = $('studioDrop'), sp = box.querySelector('span');
+  sp.dataset.orig = sp.dataset.orig || sp.textContent;
+  if (!f) return resetDrop('studioDrop');
+  sp.textContent = `${f.name} · ${fmtSize(f.size)}`; box.classList.add('filled');
+  if (!$('studioTitle').value) $('studioTitle').value = f.name.replace(/\.[^.]+$/, '').replace(/[_-]+/g, ' ');
+}
+
+// ---------- profile ----------
+function openProfile() {
+  $('dropdown').classList.remove('open');
+  $('profileName').value = ME.name;
+  resetDrop('profileDrop');
+  if (ME.avatar) { $('profileDrop').style.backgroundImage = `url("${ME.avatar}")`; $('profileDrop').classList.add('has-img'); }
+  openOverlay('profileOverlay');
+}
+async function saveProfile(e) {
+  e.preventDefault();
+  const fd = new FormData(); fd.append('name', $('profileName').value.trim());
+  if ($('profileImg').files[0]) fd.append('avatar', $('profileImg').files[0]);
+  try { ME = (await api('/api/me', {method: 'POST', form: fd})).user; updateAvatar(); closeOverlay('profileOverlay'); toast('Profile saved.'); }
+  catch (x) { toast(x.message); }
+}
+
+// ---------- marketplace ----------
+async function loadListings() {
+  try { LISTINGS = (await api('/api/listings')).listings; } catch (x) { toast(x.message); }
+  renderCats(); renderGrid();
+}
+function renderCats() {
+  $('catRow').innerHTML = ['All', ...SETTINGS.categories].map(c => `<button class="chip ${c === activeCat ? 'active' : ''}" onclick="setCat(this.textContent)">${esc(c)}</button>`).join('');
+}
+function setCat(c) { activeCat = c; renderCats(); renderGrid(); }
+function renderGrid() {
+  const q = $('searchInput').value.toLowerCase();
+  const list = LISTINGS.filter(l => (activeCat === 'All' || l.category === activeCat) && (l.title + ' ' + l.category + ' ' + (l.description || '')).toLowerCase().includes(q));
+  $('grid').innerHTML = list.map(l => `
+    <article class="card" onclick="openListing(${l.id})">
+      <div class="card-img" style="${l.image ? `background-image:url('${l.image}')` : ''}">${l.image ? '' : `<span class="mono">${esc(l.title.charAt(0))}</span>`}${l.ai ? '<div class="badge">✦ Concierge-written</div>' : ''}</div>
+      <div class="card-body">
+        <div class="card-cat">${esc(l.category)}</div>
+        <h3 class="card-title">${esc(l.title)}</h3>
+        <div class="card-foot"><span class="price">${money(l.price)}</span><span class="by">${esc(l.ownerName)}</span></div>
+      </div>
+    </article>`).join('') || (LISTINGS.length
+      ? `<div class="empty"><h3>No pieces match</h3>Try another search or category.</div>`
+      : `<div class="empty"><h3>The collection awaits</h3><p>No listings yet. Be the first to present a piece.</p><button class="btn btn-gold" onclick="openSell()">+ List an item</button></div>`);
+}
+
+async function openListing(id) {
+  currentListing = LISTINGS.find(l => l.id === id); if (!currentListing) return;
+  renderListing([]); openOverlay('detailOverlay');
+  try { renderListing((await api(`/api/listings/${id}/messages`)).messages); } catch (x) { toast(x.message); }
+}
+function renderListing(msgs) {
+  const l = currentListing, mine = l.ownerId === ME.id, canRemove = mine || ME.role === 'admin';
+  const bubble = m => `<div class="tmsg ${m.senderId === ME.id ? 'me' : ''} ${m.offer ? 'offer' : ''}"><small>${esc(m.senderName)} · ${fmtTime(m.created)}</small>${esc(m.text)}</div>`;
+  let convo;
+  if (mine) {
+    const byBuyer = {};
+    msgs.forEach(m => (byBuyer[m.buyerId] = byBuyer[m.buyerId] || {name: m.buyerName, msgs: []}).msgs.push(m));
+    const ids = Object.keys(byBuyer);
+    convo = `<h3 style="margin:24px 0 0;font-size:24px;">Enquiries</h3>` + (ids.length ? ids.map(b => `
+      <div class="conv"><h4>${esc(byBuyer[b].name)}</h4>
+        <div class="thread">${byBuyer[b].msgs.map(bubble).join('')}</div>
+        <div class="inline"><input id="reply${b}" placeholder="Reply to ${esc(byBuyer[b].name)}…" onkeydown="if(event.key==='Enter')sendMsg(${b})"><button class="btn btn-gold btn-sm" onclick="sendMsg(${b})">Reply</button></div>
+      </div>`).join('') : '<div class="thread-empty">No enquiries yet.</div>');
+  } else {
+    convo = `<div class="thread" id="threadBox">${msgs.length ? msgs.map(bubble).join('') : '<div class="thread-empty">Your conversation with the seller is private.</div>'}</div>
+      <div class="inline" style="margin-bottom:10px;"><input id="offerInput" type="number" min="0" step="0.01" placeholder="Offer amount ($)"><button class="btn btn-line btn-sm" onclick="sendOffer()">Make offer</button></div>
+      <div class="inline"><input id="msgInput" placeholder="Message the seller…" onkeydown="if(event.key==='Enter')sendMsg()"><button class="btn btn-gold btn-sm" onclick="sendMsg()">Send</button></div>`;
+  }
+  $('detailModal').innerHTML = `
+    <div class="detail-img" style="${l.image ? `background-image:url('${l.image}')` : ''}">${l.ai ? '<div class="badge">✦ Concierge-written</div>' : ''}</div>
+    <div class="eyebrow">${esc(l.category)}</div>
+    <h2>${esc(l.title)}</h2>
+    <div class="detail-price">${money(l.price)}</div>
+    <div class="meta">Presented by ${esc(l.ownerName)} · ${fmtDate(l.created)}</div>
+    ${l.description ? `<p class="desc">${esc(l.description)}</p>` : ''}
+    ${convo}
+    <div class="modal-actions">
+      ${canRemove ? '<button class="btn btn-danger btn-sm" onclick="removeListing()">Remove listing</button>' : ''}
+      <button class="btn btn-ghost btn-sm" onclick="closeOverlay(\'detailOverlay\')">Close</button>
+    </div>`;
+  document.querySelectorAll('#detailModal .thread').forEach(t => t.scrollTop = t.scrollHeight);
+}
+async function sendMsg(buyerId) {
+  const inp = buyerId ? $('reply' + buyerId) : $('msgInput'), text = inp.value.trim();
+  if (!text) return;
+  try { renderListing((await api(`/api/listings/${currentListing.id}/messages`, {method: 'POST', body: buyerId ? {text, buyerId: Number(buyerId)} : {text}})).messages); }
+  catch (x) { toast(x.message); }
+}
+async function sendOffer() {
+  const offer = Number($('offerInput').value);
+  if (!(offer > 0)) return toast('Enter an offer above $0.');
+  try { renderListing((await api(`/api/listings/${currentListing.id}/messages`, {method: 'POST', body: {offer}})).messages); toast('Offer sent.'); }
+  catch (x) { toast(x.message); }
+}
+async function removeListing() {
+  if (!confirm('Remove this listing?')) return;
+  try { await api(`/api/listings/${currentListing.id}`, {method: 'DELETE'}); closeOverlay('detailOverlay'); loadListings(); toast('Listing removed.'); }
+  catch (x) { toast(x.message); }
+}
+
+// ---------- sell ----------
+let aiUsed = false;
+function openSell() { $('dropdown').classList.remove('open'); openOverlay('sellOverlay'); }
+function feeNote() {
+  const p = Number($('price').value) || 0, f = p * SETTINGS.feeRate;
+  $('feeNote').innerHTML = p > 0 ? `Price <b>${money(p)}</b> · Fee (10%) <b>${money(f)}</b> · <span class="ok">You receive ${money(p - f)}</span>` : 'Enter a price to see what you take home after the 10% fee.';
+}
+async function generateListing() {
+  const keywords = $('keywords').value.trim(); if (!keywords) return toast('Add a few words first.');
+  const btn = $('genBtn'); btn.disabled = true; btn.textContent = 'Writing…';
+  try {
+    const r = await api('/api/ai/listing', {method: 'POST', body: {keywords, category: $('category').value, price: $('price').value}});
+    $('titleOut').value = r.title; $('descOut').value = r.description; aiUsed = r.ai;
+    if (!r.ai) toast('Drafted from your notes — edit freely.');
+  } catch (x) { toast(x.message); }
+  btn.disabled = false; btn.textContent = '✦ Write it for me';
+}
+async function postListing(e) {
+  e.preventDefault();
+  const title = ($('titleOut').value || $('keywords').value).trim();
+  if (!title) return toast('Add a title or a few words.');
+  if ($('price').value === '') return toast('Enter a price (0 for free).');
+  const fd = new FormData();
+  fd.append('title', title); fd.append('description', $('descOut').value.trim()); fd.append('price', $('price').value);
+  fd.append('category', $('category').value); fd.append('ai', aiUsed ? '1' : '0');
+  if ($('sellImg').files[0]) fd.append('image', $('sellImg').files[0]);
+  const btn = $('postBtn'); btn.disabled = true;
+  try {
+    await api('/api/listings', {method: 'POST', form: fd});
+    closeOverlay('sellOverlay'); aiUsed = false;
+    ['keywords', 'titleOut', 'descOut', 'price'].forEach(i => $(i).value = ''); resetDrop('sellDrop'); feeNote();
+    if (view !== 'market') showView('market'); else loadListings();
+    toast('Your listing is live.');
+  } catch (x) { toast(x.message); }
+  btn.disabled = false;
+}
+
+// ---------- studio ----------
+const kindOf = m => !m ? 'file' : m === 'application/pdf' ? 'pdf' : m.startsWith('audio/') ? 'audio' : m.startsWith('video/') ? 'video' : m.startsWith('image/') ? 'image' : 'file';
+const kindLabel = {pdf: 'Manuscript · PDF', audio: 'Audio', video: 'Video', image: 'Image', file: 'File'};
+const kindIcon = {pdf: '❦', audio: '♪', video: '▶', image: '◈', file: '◇'};
+
+async function loadStudio() {
+  try { STUDIO = await api('/api/studio'); } catch (x) { toast(x.message); }
+  $('studioUploadBtn').hidden = !STUDIO.canUpload;
+  renderStudio();
+}
+function renderStudio() {
+  const q = $('searchInput').value.toLowerCase();
+  const items = STUDIO.items.filter(i => (i.title + ' ' + (i.description || '') + ' ' + i.filename).toLowerCase().includes(q));
+  $('studioGrid').innerHTML = items.map(i => {
+    const k = kindOf(i.mime);
+    return `<article class="card" onclick="openItem(${i.id})">
+      <div class="card-img" style="${i.cover ? `background-image:url('${i.cover}')` : ''}">${i.cover ? '' : `<span class="mono">${kindIcon[k]}</span>`}
+        <div class="badge ${i.price === 0 ? 'free' : ''}">${i.price === 0 ? 'Free' : i.owned ? 'Unlocked' : 'Premium'}</div></div>
+      <div class="card-body">
+        <div class="card-cat">${kindLabel[k]} · ${fmtSize(i.size)}</div>
+        <h3 class="card-title">${esc(i.title)}</h3>
+        <div class="card-foot"><span class="price">${money(i.price)}</span><span class="by">${esc(i.uploaderName)}</span></div>
+      </div></article>`;
+  }).join('') || (STUDIO.items.length ? '<div class="empty"><h3>Nothing matches</h3>Try another search.</div>'
+    : `<div class="empty"><h3>The studio is quiet</h3><p>${STUDIO.canUpload ? 'Upload your first manuscript, track or file and set its cost.' : 'New works will appear here soon.'}</p>${STUDIO.canUpload ? '<button class="btn btn-gold" onclick="openStudioUpload()">+ Upload to Studio</button>' : ''}</div>`);
+}
+function openStudioUpload() {
+  ['studioTitle', 'studioDesc', 'studioPrice'].forEach(i => $(i).value = '');
+  resetDrop('studioDrop'); resetDrop('coverDrop'); studioFee();
+  $('studioProgress').hidden = true; openOverlay('studioOverlay');
+}
+function studioFee() {
+  const p = Number($('studioPrice').value) || 0, f = p * SETTINGS.feeRate;
+  $('studioFeeNote').innerHTML = p > 0 ? `Cost <b>${money(p)}</b> · Fee (10%) <b>${money(f)}</b> · <span class="ok">You receive ${money(p - f)} per sale</span>` : 'Leave the cost at 0 to publish it for free.';
+}
+async function submitStudio(e) {
+  e.preventDefault();
+  const f = $('studioFile').files[0]; if (!f) return toast('Choose a file to upload.');
+  const fd = new FormData();
+  fd.append('file', f); fd.append('title', $('studioTitle').value.trim()); fd.append('description', $('studioDesc').value.trim());
+  fd.append('price', $('studioPrice').value || '0');
+  if ($('studioCover').files[0]) fd.append('cover', $('studioCover').files[0]);
+  const btn = $('studioBtn'), bar = $('studioProgress'); btn.disabled = true; bar.hidden = false;
+  try {
+    await uploadWithProgress('/api/studio', fd, p => { bar.firstElementChild.style.width = (p * 100).toFixed(0) + '%'; btn.textContent = `Uploading ${(p * 100).toFixed(0)}%`; });
+    closeOverlay('studioOverlay'); toast('Uploaded to the Studio.');
+    if (view === 'admin') setAdminTab('studio'); else if (view !== 'studio') showView('studio'); else loadStudio();
+  } catch (x) { toast(x.message); }
+  btn.disabled = false; btn.textContent = 'Upload';
+}
+function openItem(id) {
+  const i = STUDIO.items.find(x => x.id === id); if (!i) return;
+  const k = kindOf(i.mime), src = fileURL(i.id), canEdit = i.uploaderId === ME.id || ME.role === 'admin';
+  let body;
+  if (!i.owned) body = `<div class="lock"><div class="big">${money(i.price)}</div><p class="dim">This is a premium work. Purchase once to read, play and download it any time.</p><button class="btn btn-gold" onclick="buyItem(${i.id})">Purchase · ${money(i.price)}</button></div>`;
+  else {
+    const v = {pdf: `<iframe src="${src}" title="${esc(i.title)}"></iframe>`, audio: `<audio src="${src}" controls preload="metadata" playsinline></audio>`,
+      video: `<video src="${src}" controls preload="metadata" playsinline></video>`, image: `<img src="${src}" alt="${esc(i.title)}">`,
+      file: `<div class="lock"><div class="big">${kindIcon.file}</div><p class="dim">${esc(i.filename)} · ${fmtSize(i.size)}</p></div>`}[k];
+    body = `<div class="viewer">${v}</div><div class="modal-actions" style="justify-content:flex-start;"><a class="btn btn-gold btn-sm" href="${src}" download="${esc(i.filename)}">Download</a>${k === 'pdf' ? `<a class="btn btn-ghost btn-sm" href="${src}" target="_blank" rel="noopener">Open in new tab</a>` : ''}</div>`;
+  }
+  $('detailModal').innerHTML = `
+    ${i.cover ? `<div class="detail-img" style="background-image:url('${i.cover}')"></div>` : ''}
+    <div class="eyebrow">${kindLabel[k]} · ${fmtSize(i.size)}</div>
+    <h2>${esc(i.title)}</h2>
+    <div class="detail-price">${money(i.price)}</div>
+    <div class="meta">By ${esc(i.uploaderName)} · ${fmtDate(i.created)}${canEdit ? ` · ${i.sales} sale${i.sales === 1 ? '' : 's'}` : ''}</div>
+    ${i.description ? `<p class="desc">${esc(i.description)}</p>` : ''}
+    ${body}
+    <div class="modal-actions">
+      ${canEdit ? `<button class="btn btn-ghost btn-sm" onclick="editItemPrice(${i.id})">Change cost</button><button class="btn btn-danger btn-sm" onclick="deleteItem(${i.id})">Remove</button>` : ''}
+      <button class="btn btn-ghost btn-sm" onclick="closeOverlay('detailOverlay')">Close</button>
+    </div>`;
+  openOverlay('detailOverlay');
+}
+async function buyItem(id) {
+  try {
+    const {item} = await api(`/api/studio/${id}/buy`, {method: 'POST'});
+    STUDIO.items = STUDIO.items.map(x => x.id === id ? item : x); renderStudio(); openItem(id); toast('Purchased — enjoy.');
+  } catch (x) { toast(x.message); }
+}
+async function editItemPrice(id) {
+  const i = STUDIO.items.find(x => x.id === id);
+  const v = prompt(`New cost for “${i.title}” in $ (0 = free):`, i.price); if (v === null) return;
+  try { const {item} = await api(`/api/studio/${id}`, {method: 'PATCH', body: {price: v}}); STUDIO.items = STUDIO.items.map(x => x.id === id ? item : x); renderStudio(); openItem(id); if (view === 'admin') setAdminTab('studio'); toast('Cost updated.'); }
+  catch (x) { toast(x.message); }
+}
+async function deleteItem(id) {
+  if (!confirm('Remove this item from the Studio? Buyers will lose access.')) return;
+  try { await api(`/api/studio/${id}`, {method: 'DELETE'}); closeOverlay('detailOverlay'); toast('Removed.'); view === 'admin' ? setAdminTab('studio') : loadStudio(); }
+  catch (x) { toast(x.message); }
+}
+
+$('searchInput').addEventListener('input', () => view === 'studio' ? renderStudio() : renderGrid());
+
+// ---------- concierge ----------
+function toggleAI(open) { $('aiPanel').classList.toggle('open', open); if (open) setTimeout(() => $('chatInput').focus(), 300); }
+function addMsg(text, who) { const d = document.createElement('div'); d.className = 'msg ' + who; d.textContent = text; $('chatLog').appendChild(d); $('chatLog').scrollTop = 1e9; return d; }
+async function sendChat() {
+  const q = $('chatInput').value.trim(); if (!q) return;
+  addMsg(q, 'user'); $('chatInput').value = '';
+  const typing = addMsg('…', 'ai');
+  try {
+    const r = await api('/api/ai/assistant', {method: 'POST', body: {q}});
+    typing.textContent = r.reply;
+    r.matches.forEach(id => {
+      const l = LISTINGS.find(x => x.id === id); if (!l) return;
+      const d = document.createElement('div'); d.className = 'rec';
+      d.innerHTML = `<b>${esc(l.title)}</b><span class="price">${money(l.price)}</span>`;
+      d.onclick = () => { toggleAI(false); openListing(l.id); };
+      $('chatLog').appendChild(d);
+    });
+    $('chatLog').scrollTop = 1e9;
+  } catch (x) { typing.textContent = x.message; }
+}
+
+// ---------- admin ----------
+const PRESETS = [
+  {name: 'Noir & Gold', theme: {accent: '#C9A55C', bg: '#0B0B0D', surface: '#141417', text: '#F3EEE3'}},
+  {name: 'Champagne', theme: {accent: '#B08D57', bg: '#F6F1E7', surface: '#FFFDF8', text: '#1E1A14'}},
+  {name: 'Emerald Velvet', theme: {accent: '#D4AF6A', bg: '#07140F', surface: '#0E2119', text: '#EEF2EA'}},
+  {name: 'Bordeaux', theme: {accent: '#D8B26E', bg: '#16070B', surface: '#240E14', text: '#F6ECE6'}},
+  {name: 'Sapphire Night', theme: {accent: '#C8B07A', bg: '#070B18', surface: '#0F1528', text: '#EDEFF6'}},
+  {name: 'Rose Gold', theme: {accent: '#E0A890', bg: '#120D0D', surface: '#1D1515', text: '#F7EDE8'}},
+  {name: 'Platinum', theme: {accent: '#C9CED6', bg: '#0C0D10', surface: '#16181C', text: '#F2F3F5'}},
+];
+const COLOR_LABELS = {accent: ['Accent', 'Buttons, links, highlights'], bg: ['Background', 'Page background'], surface: ['Surface', 'Cards & panels'], text: ['Text', 'Main text color']};
+
+document.querySelectorAll('#adminTabs button').forEach(b => b.onclick = () => setAdminTab(b.dataset.t));
+
+async function setAdminTab(t) {
+  adminTab = t;
+  document.querySelectorAll('#adminTabs button').forEach(b => b.classList.toggle('active', b.dataset.t === t));
+  const c = $('adminContent');
+  try {
+    if (t === 'overview') {
+      const o = await api('/api/admin/overview');
+      const stat = (v, l) => `<div class="stat"><div class="v">${v}</div><div class="l">${l}</div></div>`;
+      c.innerHTML = `<div class="stats">${stat(o.users, 'Members')}${stat(o.listings, 'Live listings')}${stat(money(o.listingValue || 0).replace('Free', '$0'), 'Listing value')}
+        ${stat(o.studioItems, 'Studio items')}${stat(o.studioOrders, 'Studio orders')}${stat(money(o.studioSales || 0).replace('Free', '$0'), 'Studio sales')}
+        ${stat(money(o.revenue || 0).replace('Free', '$0'), 'Platform revenue (10%)')}${stat(o.messages, 'Messages')}${stat(o.offers, 'Offers')}</div>
+        <p class="dim" style="font-size:13px;">Platform revenue is 10% of completed Studio sales.</p>`;
+    } else if (t === 'users') {
+      renderUsers((await api('/api/admin/users')).users);
+    } else if (t === 'appearance') {
+      renderAppearance();
+    } else if (t === 'studio') {
+      await loadStudio();
+      const pol = SETTINGS.studioUploads;
+      c.innerHTML = `<div class="panel"><h3>Studio uploads</h3><div class="sub">Upload a file and set its cost. Choose who else may upload.</div>
+        <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;"><button class="btn btn-gold" onclick="openStudioUpload()">+ Upload a file</button>
+        <div class="seg"><button class="${pol === 'admin' ? 'active' : ''}" onclick="setPolicy('admin')">Admins only</button><button class="${pol === 'members' ? 'active' : ''}" onclick="setPolicy('members')">All members</button></div></div></div>
+        <div class="table-wrap"><table><thead><tr><th>Title</th><th>Type</th><th>Size</th><th>Cost</th><th>Sales</th><th>Uploaded by</th><th></th></tr></thead><tbody>
+        ${STUDIO.items.map(i => `<tr><td><a href="#" onclick="openItem(${i.id});return false;">${esc(i.title)}</a><div class="dim" style="font-size:12px;">${esc(i.filename)}</div></td><td>${kindLabel[kindOf(i.mime)]}</td><td>${fmtSize(i.size)}</td>
+          <td class="price">${money(i.price)}</td><td>${i.sales}</td><td>${esc(i.uploaderName)}</td>
+          <td style="white-space:nowrap;"><button class="link" onclick="editItemPrice(${i.id})">Change cost</button><button class="link red" onclick="deleteItem(${i.id})">Remove</button></td></tr>`).join('') || '<tr><td colspan="7" class="dim">Nothing uploaded yet.</td></tr>'}
+        </tbody></table></div>`;
+    } else if (t === 'orders') {
+      const {orders} = await api('/api/admin/orders');
+      c.innerHTML = `<div class="table-wrap"><table><thead><tr><th>Date</th><th>Member</th><th>Email</th><th>Item</th><th>Amount</th></tr></thead><tbody>
+        ${orders.map(o => `<tr><td>${fmtTime(o.created)}</td><td>${esc(o.name)}</td><td><a href="mailto:${esc(o.email)}">${esc(o.email)}</a></td><td>${esc(o.title)}</td><td class="price">${money(o.amount)}</td></tr>`).join('') || '<tr><td colspan="5" class="dim">No orders yet.</td></tr>'}
+        </tbody></table></div>`;
+    } else if (t === 'listings') {
+      await loadListings();
+      c.innerHTML = `<div class="table-wrap"><table><thead><tr><th>Title</th><th>Category</th><th>Price</th><th>Fee (10%)</th><th>Seller</th><th>Listed</th><th></th></tr></thead><tbody>
+        ${LISTINGS.map(l => `<tr><td>${esc(l.title)}</td><td>${esc(l.category)}</td><td class="price">${money(l.price)}</td><td>${money(l.price * SETTINGS.feeRate)}</td><td>${esc(l.ownerName)}</td><td>${fmtDate(l.created)}</td>
+          <td><button class="link red" onclick="adminRemoveListing(${l.id})">Remove</button></td></tr>`).join('') || '<tr><td colspan="7" class="dim">No listings yet.</td></tr>'}
+        </tbody></table></div>`;
+    } else if (t === 'messages') {
+      const {messages} = await api('/api/admin/messages');
+      c.innerHTML = messages.map(m => `<div class="feed-item"><div><div class="t">${m.offer ? `<span class="price">Offer ${money(m.offer)}</span> — ` : ''}${esc(m.offer ? '' : m.text)}</div>
+        <div class="s">${esc(m.senderName)} on “${esc(m.listingTitle)}”</div></div><div class="s">${fmtTime(m.created)}</div></div>`).join('') || '<div class="empty"><h3>Quiet for now</h3>Messages and offers between members will appear here.</div>';
+    }
+  } catch (x) { c.innerHTML = `<div class="empty">${esc(x.message)}</div>`; }
+}
+
+function renderUsers(users) {
+  $('adminContent').innerHTML = `<div class="hero-row" style="margin-bottom:16px;"><p class="dim" style="margin:0;">${users.length} member${users.length === 1 ? '' : 's'}</p>
+    <button class="btn btn-ghost btn-sm" onclick="exportUsers()">Export CSV</button></div>
+    <div class="table-wrap"><table><thead><tr><th>Member</th><th>Email</th><th>Role</th><th>Joined</th><th>Last sign-in</th><th>Listings</th><th>Uploads</th><th>Purchases</th><th></th></tr></thead><tbody>
+    ${users.map(u => `<tr>
+      <td><div class="who"><div class="mini" style="${u.avatar ? `background-image:url('${u.avatar}')` : ''}">${u.avatar ? '' : esc(u.name.charAt(0).toUpperCase())}</div><b style="font-weight:600;">${esc(u.name)}</b></div></td>
+      <td><a href="mailto:${esc(u.email)}">${esc(u.email)}</a></td>
+      <td><span class="role ${u.role}">${u.role}</span></td>
+      <td>${fmtDate(u.joined)}</td><td>${u.lastLogin ? fmtTime(u.lastLogin) : '—'}</td>
+      <td>${u.listings}</td><td>${u.uploads}</td><td>${u.purchases}</td>
+      <td style="white-space:nowrap;">${u.id === ME.id ? '<span class="dim" style="font-size:12px;">You</span>' : `<button class="link" onclick="setRole(${u.id},'${u.role === 'admin' ? 'member' : 'admin'}')">${u.role === 'admin' ? 'Make member' : 'Make admin'}</button><button class="link red" onclick="deleteUser(${u.id},'${esc(u.name).replace(/'/g, '')}')">Delete</button>`}</td>
+    </tr>`).join('')}</tbody></table></div>`;
+  window._users = users;
+}
+function exportUsers() {
+  const rows = [['Name', 'Email', 'Role', 'Joined'], ...window._users.map(u => [u.name, u.email, u.role, new Date(u.joined * 1000).toISOString()])];
+  const csv = rows.map(r => r.map(v => `"${String(v).replace(/"/g, '""')}"`).join(',')).join('\n');
+  const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([csv], {type: 'text/csv'})); a.download = 'members.csv'; a.click();
+}
+async function setRole(id, role) { try { renderUsers((await api(`/api/admin/users/${id}`, {method: 'PATCH', body: {role}})).users); toast('Role updated.'); } catch (x) { toast(x.message); } }
+async function deleteUser(id, name) { if (!confirm(`Delete ${name}'s account and everything they posted?`)) return; try { renderUsers((await api(`/api/admin/users/${id}`, {method: 'DELETE'})).users); toast('Member deleted.'); } catch (x) { toast(x.message); } }
+async function adminRemoveListing(id) { if (!confirm('Remove this listing?')) return; try { await api(`/api/listings/${id}`, {method: 'DELETE'}); setAdminTab('listings'); } catch (x) { toast(x.message); } }
+async function setPolicy(p) { try { applySettings(await api('/api/admin/settings', {method: 'PUT', body: {studioUploads: p}})); setAdminTab('studio'); toast(p === 'admin' ? 'Only admins can upload.' : 'All members can upload.'); } catch (x) { toast(x.message); } }
+
+let draftTheme = null;
+function renderAppearance(theme) {
+  draftTheme = {...(theme || SETTINGS.theme)};
+  const same = (a, b) => Object.keys(a).every(k => a[k].toLowerCase() === (b[k] || '').toLowerCase());
+  $('adminContent').innerHTML = `
+    <div class="panel"><h3>Colour</h3><div class="sub">Pick a signature palette or fine-tune each colour. Changes preview live; press Save to publish for everyone.</div>
+      <div class="presets">${PRESETS.map((p, i) => `<button class="preset ${same(p.theme, draftTheme) ? 'active' : ''}" onclick="pickPreset(${i})"><div class="sw"><i style="background:${p.theme.bg}"></i><i style="background:${p.theme.surface}"></i><i style="background:${p.theme.accent}"></i><i style="background:${p.theme.text}"></i></div><span>${p.name}</span></button>`).join('')}</div>
+      <div class="colors">${Object.keys(COLOR_LABELS).map(k => `<label class="color-field"><input type="color" id="col_${k}" value="${draftTheme[k]}" oninput="previewColor('${k}',this.value)"><div><b>${COLOR_LABELS[k][0]}</b><code id="hex_${k}">${draftTheme[k].toUpperCase()}</code><div class="dim" style="font-size:11.5px;">${COLOR_LABELS[k][1]}</div></div></label>`).join('')}</div>
+      <div class="modal-actions" style="justify-content:flex-start;"><button class="btn btn-gold" onclick="saveTheme()">Save colours</button><button class="btn btn-ghost" onclick="applySettings(SETTINGS);renderAppearance()">Discard</button></div>
+    </div>
+    <div class="panel"><h3>Brand</h3><div class="sub">Name shown in the header and landing page.</div>
+      <div class="inline" style="max-width:420px;"><input id="brandInput" value="${esc(SETTINGS.brand)}" maxlength="40"><button class="btn btn-gold btn-sm" onclick="saveBrand()">Save</button></div></div>
+    <div class="panel"><h3>Logo &amp; background</h3><div class="sub">Images are stored on the server and shown to every visitor.</div>
+      <div class="asset-row">
+        ${['logo', 'background'].map(k => `<div class="asset"><div class="lbl">${k === 'logo' ? 'Logo' : 'Background image'}</div>
+          <label class="drop ${SETTINGS[k] ? 'has-img' : ''}" style="${SETTINGS[k] ? `background-image:url('${SETTINGS[k]}')` : ''}"><span>Upload ${k}</span><input type="file" accept="image/*" onchange="uploadAsset('${k}',this)"></label>
+          ${SETTINGS[k] ? `<button class="link red" style="margin-top:8px;padding:0;" onclick="removeAsset('${k}')">Remove ${k}</button>` : ''}</div>`).join('')}
+      </div></div>`;
+}
+function previewColor(k, v) { draftTheme[k] = v; if ($('hex_' + k)) $('hex_' + k).textContent = v.toUpperCase(); document.documentElement.style.setProperty('--' + k, v); if (k === 'accent') { const n = parseInt(v.slice(1), 16); document.documentElement.style.setProperty('--accent-ink', (0.299 * (n >> 16) + 0.587 * (n >> 8 & 255) + 0.114 * (n & 255)) / 255 > 0.55 ? '#17120A' : '#FFFFFF'); } document.querySelectorAll('.preset').forEach(p => p.classList.remove('active')); }
+function pickPreset(i) { const t = PRESETS[i].theme; Object.entries(t).forEach(([k, v]) => previewColor(k, v)); renderAppearance(t); }
+async function saveTheme() { try { applySettings(await api('/api/admin/settings', {method: 'PUT', body: {theme: draftTheme}})); renderAppearance(); toast('Colours published.'); } catch (x) { toast(x.message); } }
+async function saveBrand() { try { applySettings(await api('/api/admin/settings', {method: 'PUT', body: {brand: $('brandInput').value}})); toast('Brand saved.'); } catch (x) { toast(x.message); } }
+async function uploadAsset(k, input) {
+  const f = input.files[0]; if (!f) return;
+  const fd = new FormData(); fd.append('file', f);
+  try { applySettings(await api('/api/admin/asset/' + k, {method: 'POST', form: fd})); renderAppearance(); toast('Saved.'); } catch (x) { toast(x.message); }
+}
+async function removeAsset(k) { try { applySettings(await api('/api/admin/asset/' + k, {method: 'DELETE'})); renderAppearance(); } catch (x) { toast(x.message); } }
+
+// ---------- boot ----------
+(async function boot() {
+  await _ready;
+  $('year').textContent = new Date().getFullYear();
+  try { applySettings(await api('/api/settings')); } catch (e) {}
+  try { ME = (await api('/api/me')).user; } catch (e) {}
+  if (ME) enterApp(); else $('landing').hidden = false;
+})();
+
+</script>
+</body>
+</html>
